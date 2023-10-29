@@ -1,0 +1,48 @@
+.card{
+    margin: 3%;
+    width: 30vw;
+    height: 34vh;
+    display: block;
+}
+
+.card-body{
+    position: relative;
+    height: 100%;
+}
+
+.content{
+   display: grid;
+   grid-template-columns: auto auto auto ;
+   row-gap: 5%;
+
+}
+
+.actions{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+}
+
+img{
+    height: 34vh;
+}
+
+.icons-actions{
+    display: flex;
+    justify-content:end;
+    align-items: center;
+}
+
+i{
+    padding: 5% 7%;
+}
+
+.i{
+    padding: 5% 7%;
+}
+
+a{
+    color: black;
+    text-decoration: none; 
+}

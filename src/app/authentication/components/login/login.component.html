@@ -1,0 +1,25 @@
+<div class="banner">
+    <img src="./assets/login.png" alt="">
+</div>
+<div class="content">
+    <div class="form">
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <h5><strong>Iniciar sesión</strong></h5>
+        <div class="input">
+            <label for="user"><strong>Usuario</strong></label>
+            <input type="text" name="user" class="form-control" formControlName="username">
+        </div>
+        
+        <div class="input">
+            <label for="password"><strong>Contraseña</strong></label>
+            <input type="password" name="password" class="form-control" formControlName="password">
+        </div>
+        <div class="button">
+            <button>Ingresar</button>
+        </div>
+        
+    </form>
+
+    </div>
+</div>

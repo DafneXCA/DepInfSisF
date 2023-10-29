@@ -1,0 +1,18 @@
+<div class="modal-header text-center">
+  <h5 class="modal-title " ><strong>Editar revista</strong></h5> 
+</div>
+<div class="modal-body">
+  
+  <form [formGroup]="journalForm">
+      <div class="input">
+        <label for="nombre" class="form-label"><strong>Nombre</strong></label>
+        <input type="text" class="form-control" id="nombre" formControlName="nombre">
+      </div>
+  </form>
+
+</div>
+<div class="modal-footer row">
+  <button type="button submit" class="btn" (click)="saveChanges()">Aceptar</button>
+  <button type="button" class="btn Cancelar" (click)="activeModal.close(true)">Cancelar</button>
+</div>
+  

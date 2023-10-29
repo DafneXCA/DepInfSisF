@@ -1,0 +1,47 @@
+<div class="modal-header text-center">
+    <h5 class="modal-title " ><strong>Añadir revista</strong></h5> 
+  </div>
+  <div class="modal-body">
+    
+    <form [formGroup]="journalForm" >
+      
+        <div class="input">
+          <label for="nombre" class="form-label"><strong>Nombre</strong></label>
+          <input type="text" class="form-control" id="nombre" formControlName="nombre">
+          <div *ngIf="nombre?.invalid && nombre?.dirty || nombre?.touched">
+            <div *ngIf="nombre?.errors?.['required']"  class="error"> El nombre es requerido </div>
+            <div *ngIf="nombre?.errors?.['minlength']" class="error"> Mínimo 3 caracteres</div>
+            <div *ngIf="nombre?.errors?.['maxlength']" class="error"> Máximo 10 caracteres</div>
+          </div>
+        </div>
+        <div class="input">
+          <label for="revista" class="form-label"><strong>Revista PDF</strong></label>
+          <div class="input-file">
+            <span class="label-file"><strong>Seleccionar Archivo</strong></span>
+            <input type="file" class="form-control" id="revista" formControlName="revista" accept=".pdf" (change)="Revista($event)">
+          </div>
+          <div *ngIf="revista?.valid && revistaPdf!=null">{{revistaPdf.name}}</div>
+          <div *ngIf="revista?.invalid && (revista?.dirty || revista?.touched)">
+            <div *ngIf="revista?.errors?.['required']" class="error">La revista es requerida </div>
+            <div *ngIf="revista?.errors?.['pdfValidator']" class="error">El tipo de formato no es admitido</div>
+          </div>
+        </div>
+        <div class="input">
+          <label for="revista" class="form-label"><strong>Portada de la revista</strong></label>
+          <div class="input-file">
+            <span class="label-file"><strong>Seleccionar Imagen</strong></span>
+            <input type="file" class="form-control" id="portada" formControlName="portada" accept=".jpg, .jpeg, .png" (change)="Portada($event)">
+          </div>
+          <div *ngIf="portada?.valid && revistaPortada!=null">{{revistaPortada.name}}</div>
+          <div *ngIf="portada?.invalid && (portada?.dirty || portada?.touched)">
+            <div *ngIf="portada?.errors?.['required']" class="error">La portada es requerida </div>
+            <div *ngIf="portada?.errors?.['imageValidator']" class="error">El tipo de formato no es admitido</div>
+          </div>
+        </div>
+    </form>
+
+  </div>
+  <div class="modal-footer row">
+    <button type="button submit" (click)="save()" [disabled]="!journalForm.valid">Añadir</button>
+    <button type="button" class="Cancelar" (click)="closeModal()">Cancelar</button>
+  </div>
